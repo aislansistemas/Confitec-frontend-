@@ -1,0 +1,37 @@
+<div class="row mt-5">
+    <div class="col-md-12">
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" placeholder="Nome" formControlName="name">
+                <small *ngIf="submitted" id="name" class="form-text text-danger">
+                    Campo é obrigatório
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="lastnName">Sobrenome</label>
+                <input type="text" class="form-control" id="lastnName" placeholder="lastnName" formControlName="lastName">
+                <small *ngIf="submitted" id="lastnName" class="form-text text-danger">Campo é obrigatório</small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email" formControlName="email"> 
+                <small *ngIf="submitted" id="email" class="form-text text-danger">Campo é obrigatório</small>
+            </div>
+            <div class="form-group">
+                <label for="birthDate">Data de Nascimento</label>
+                <input type="date" class="form-control" id="birthDate" placeholder="Data de Nascimento" formControlName="birthDate"> 
+                <small *ngIf="submitted" id="birthDate" class="form-text text-danger">Campo é obrigatório</small>
+            </div>
+            <div class="form-group">
+                <label for="schooling">Escolaridade</label>
+                <select class="form-control" id="schooling" formControlName="schooling">
+                    <option>Selecione:</option>
+                    <option *ngFor="let item of scoolings" [value]="item.value">{{ item.description }}</option>
+                </select>
+                <small *ngIf="submitted" id="schooling" class="form-text text-danger">Campo é obrigatório</small>
+            </div>
+            <button type="submit" (click)="salvar()" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>

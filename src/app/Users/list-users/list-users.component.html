@@ -1,0 +1,37 @@
+<div class="row">
+
+	<div class="row mb-3 mt-5">
+		<div class="col-md-3">
+			<button type="button" class="btn btn-primary" (click)="redirectToRegister()">
+				Novo
+			</button>
+		</div>
+	</div>
+	<hr>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Nome</th>
+				<th scope="col">Sobrenome</th>
+				<th scope="col">Email</th>
+				<th scope="col">Escolaridade</th>
+				<th scope="col">Data de Nascimento</th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of users; index as i">
+				<td>{{ item.name }}</td>
+				<td>{{ item.lastName }}</td>
+				<td>{{ item.email?.address }}</td>
+				<td>{{ item.schoolingDescription }}</td>
+				<td>{{ item.birthDate | date: "dd/MM/yyyy" }}</td>
+				<td>
+					<button type="button" class="btn btn-warning text-light" (click)="redirectToRegister(item.id)">
+						Editar
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
